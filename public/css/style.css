@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+p {
+    margin-bottom: 30px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    padding-top: 400px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 130px 10px 10px 10px;
+    height: 400px;
+    color: #434549;
+}
+
+header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+        top: 7%;
+        left: 3%;
+        right:0%;
+        bottom:0%;
+}
+
+nav,
+.main {
+    position: relative;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    background-color: #eee;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 1px 0 rgba(0,0,0,.4);
+    z-index: 150;
+    margin-bottom: -40px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.main-nav-scrolled,
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.main-nav li {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+}
+
+.contact-info {
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.location,
+.github,
+.email {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    /*border: 1px solid #eee;*/
+    padding-left: 20px;
+}
+
+.location::after {
+    position: absolute;
+    content: "Cali, Colombia";
+    left: 20px;
+}
+
+.email::after {
+    position: absolute;
+    content: "jhongilp@gmail.com";
+    left: 20px;
+}
+
+.location img,
+.github img,
+.email img {
+    position: absolute;
+        top: 30%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    z-index: -1;
+    animation: pinIn .3s .2s cubic-bezier(0,.77,.19,.99) forwards;
+}
+
+@keyframes pinIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+        /*transform: none;*/
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+
+
+.main {
+    background-color: #fff;
+}
