@@ -1,3 +1,8 @@
+:root {
+    --imgSize: 100px;
+    --opacity: 1;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,37 +17,100 @@ body {
 
 h1 {
     font-size: 1.5em;
+    padding-left: 1em;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 p {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.upper-highlight > * {
+    display: none;
+}
+
+.upper-hl-fixed > .name-hl {
+    position: absolute;
+        top: 10%;
+        left: 0;
+    display: flex;
+    color: #fff;
+    font-size: 1.5em;
+    padding-left: 50px;
+    margin: 0;
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: showName .3s .2s cubic-bezier(0,.77,.19,.99) forwards;
+}
+
+.upper-hl-fixed > .email-hl {
+    position: absolute;
+        top: 55%;
+        left: 0;
+    display: flex;
+    color: #fff;
+    /*font-size: 1.5em;*/
+    padding-left: 50px;
+    margin: 0;
+    transform: scale(0.8);
+    opacity: 0;
+    animation: scaling .6s .8s cubic-bezier(0,.99,.49,.93) forwards
 }
 
 .wrapper {
     display: flex;
     flex-direction: column;
     width: 100vw;
-    padding-top: 400px;
+    background-color: #ccc;
 }
 
 header {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    margin: 0;
-    padding: 130px 10px 10px 10px;
-    height: 400px;
+    margin-bottom: 10px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.4);
+    padding: 10px 10px 10px 10px;
+    height: 290px;
     color: #434549;
+    background-color: #fff;
+}
+
+.upper-highlight {
+    height: 110px;
+    background: linear-gradient(to right, rgba(147,206,222,1) 0%, rgba(117,189,209,1) 41%, rgba(36,54,171,1) 100%);
+}
+
+.upper-hl-fixed {
+    position: fixed;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #1c1d1e;
+    opacity: 1;
+    top: 0;
+    width: 100%;
+    z-index: 200;
+}
+
+.upper-support {
+    display: none;
 }
 
 header img {
-    width: 100px;
-    height: 100px;
+    width: var(--imgSize);
+    height: var(--imgSize);
+    opacity: var(--opacity);
     border-radius: 50%;
     position: absolute;
-        top: 7%;
+        top: 14%;
         left: 3%;
         right:0%;
         bottom:0%;
+    border: 3px solid #fff;
 }
 
 nav,
@@ -53,8 +121,8 @@ nav,
 nav {
     display: flex;
     width: 100%;
-    height: 40px;
-    background-color: #eee;
+    height: 50px;
+    background-color: #fff;
     border-bottom: 1px solid #eee;
     box-shadow: 0 1px 0 rgba(0,0,0,.4);
     z-index: 150;
@@ -68,21 +136,47 @@ nav {
     width: 100%;
     padding: 0;
     margin: 0;
-}
-
-.main-nav-scrolled,
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
+    
 }
 
 .main-nav li {
-    display: flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  user-select: none;
+  font-size: 1.2em;
 }
 
-a {
-    text-decoration: none;
+.main-nav li::after {
+  position: absolute;
+  border-top: .2em solid rgb(63, 127, 191);
+  content: "";
+    right: 100%;
+    bottom: -0.2em;
+    left: 0;
+  transition: right .4s cubic-bezier(0, .5, 0, 1),
+              border-color .4s ease-out;
+  border-radius: 1em;
+}
+
+.main-nav li:hover::after {
+  color: rgb(63, 127, 191);
+  right: 0;
+}
+
+.active {
+    background-color: #eee;
+    color: rgb(63, 127, 191);
+}
+
+.main-nav-scrolled {
+    position: fixed;
+    top: 60px;
+    width: 100%;
 }
 
 .contact-info {
@@ -125,8 +219,9 @@ a {
     width: 16px;
     height: 16px;
     opacity: 0;
-    z-index: -1;
+    /*z-index: -1;*/
     animation: pinIn .3s .2s cubic-bezier(0,.77,.19,.99) forwards;
+    border: 0;
 }
 
 @keyframes pinIn {
@@ -141,9 +236,31 @@ a {
     }
 }
 
+@keyframes showName {
+    0% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
 
-
+@keyframes scaling {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 .main {
     background-color: #fff;
+    padding: 50px 10px;
+    color: #434549;
+    /*font-size: 1.4em;*/
 }
