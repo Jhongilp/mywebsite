@@ -260,7 +260,12 @@ nav {
 
 .main {
     background-color: #fff;
-    padding: 50px 10px;
+    padding: 110px 10px;
     color: #434549;
     /*font-size: 1.4em;*/
 }
+
+.module-container {
+    
+}
+
