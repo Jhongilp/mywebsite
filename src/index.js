@@ -1,6 +1,9 @@
+// import about from './about';
+
 window.onload = () => {
   initialize();
 };
+
 
 function initialize() {
   const mainNav = document.getElementById('main-nav');
@@ -11,9 +14,8 @@ function initialize() {
   
   links.forEach( link => {
     link.addEventListener('click', () => {
-      // console.log(link.id, link);
       activateLink(links, link);
-      showModule(link.id);
+      // showModule(link.id);
       rollView();
     });
   });
@@ -40,16 +42,21 @@ function initialize() {
     else {
       mainNav.classList.remove('main-nav-scrolled');
     }
-    console.log(window.pageYOffset);
   };
 }
 
 function activateLink(nav, linkClicked) {
   nav.forEach( link => {
+    let module = document.getElementById(`${link.id}-module`);
+    console.log(module);
     if (link != linkClicked) {
       link.classList.remove('active');
+      module.classList.remove('show-module');
+      module.classList.add('module-hidden');
     } else {
       link.classList.add('active');
+      module.classList.remove('module-hidden');
+      module.classList.add('show-module');
     }
   });
 }
@@ -61,58 +68,27 @@ function rollView() {
   });
 }
 
-function showModule(moduleName) {
-  console.log(moduleName);
-  const modules = {
-    about: about(),
-    knowledge: knowledge(),
-    projects: projects()
-  };
-  const main = document.getElementById('main');
-  main.innerHTML = modules[moduleName];
-  // main.appendChild(module);
-}
+// function showModule(moduleName) {
+//   const modules = {
+//     about: about(),
+//     knowledge: knowledge(),
+//     projects: projects()
+//   };
+//   const main = document.getElementById('main');
+//   // main.innerHTML = modules[moduleName];
+//   main.appendChild(modules[moduleName]);
+// }
 
 // Modules views
 
-const about = () => (
-    `<div class='module-container'>
-    <p>
-      Currently I am making a career change from Foreign Trade major while working as export advisor 
-      and studying Informatics Engineering. Despite the duties and responsibilities of these activities, 
-      I have managed to study and learn to reinforce my expertise in programming. 
-      I am looking forward to doing programming full time.
-    </p>
-    <p>
-      Even though I have no programming job experience, I have solid knowledge programming and 7 years 
-      of working experience in Foreign Trade that have cultivated abilities of team work, 
-      communication and understanding customer’s need.
-    </p>
-    <ul class='about-details'>
-      <li>EXPERIENCE</li>
-      <li>EDUCATION</li>
-      <li>MORE INFO</li>
-    </ul>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <p>.</p>
-  </div>`
-);
+// const knowledge = () => (
+//   `<div>
+//     <h2>Knoledge module</h2>
+//   </div>`
+// );
 
-const knowledge = () => (
-  `<div>
-    <h2>Knoledge module</h2>
-  </div>`
-);
-
-const projects = () => (
-  `<div>
-    <h2>Projects module</h2>
-  </div>`
-);
+// const projects = () => (
+//   `<div>
+//     <h2>Projects module</h2>
+//   </div>`
+// );
