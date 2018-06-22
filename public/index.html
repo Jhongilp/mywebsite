@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,17 +15,17 @@
         <p class='email-hl'>jhongilp@gmail.com</p>
       </div>
       <header>
-        <img src="./img/profile3_compressed.jpg" id='profile-img' />
+        <img src="./img/profile3_compressed.jpg" id='profile-img' alt='profile picture'/>
         <h1>Jonathan Gil</h1>
         <h3>Fullstack web developer</h3>
         <p>
-          I am an aspiring fullstack web developer with knowledge in vanilla JavaScript, React and Node. 
-          I have been programming for three years, autodidact and I am always learning new things.
+          Full Stack web developer with knowledge of vanilla JavaScript, React and Node. 
+          I have been programming for three years, self-taught and always learning new things.
         </p>
         <div class="contact-info">
-          <div class='location'><img src="./img/pin.png" /></div>
-          <div class='github'><img src="./img/github.png" /><a href="https://github.com/Jhongilp">github.com/jhongilp</a></a></div>
-          <div class='email'><img src="./img/message.png" /></div>
+          <div class='location'><img src="./img/pin.png" alt='location pin'/></div>
+          <div class='github'><img src="./img/github.png" alt='github logo'/><a href="https://github.com/Jhongilp">github.com/jhongilp</a></a></div>
+          <div class='email'><img src="./img/message.png" alt='email logo'/></div>
         </div>
       </header>
       <nav id="main-nav">
@@ -39,12 +39,12 @@
       <div class='main' id='main'>
         <div id='about-module' class="module module-hidden">
           <div id='about-intro'>
-            <h1>About</h1>
+            <!--<h1>About</h1>-->
             <p>
-              Currently I am making a career change from Foreign Trade major while working as export advisor 
-              and studying Informatics Engineering. Despite the duties and responsibilities of these activities, 
-              I have managed to study and learn to reinforce my expertise in programming. 
-              I am looking forward to doing programming full time.
+              Currently I am making a career change from international trade professional while working as export advisor 
+              and studying Informatics Engineering. Despite the responsibilities of these activities, 
+              I have managed to study and enhance my programming skills and now I am looking forward 
+              to programming full time.
             </p>
           </div>
           
@@ -56,9 +56,10 @@
             
             <div id='rolldown-experience' class='hide-showroll'>
               <p>
-                Even though I have no programming job experience, I have solid knowledge programming and 8 years 
-                of working experience in Foreign Trade that have cultivated abilities of team work, 
-                communication and understanding customer’s need.
+                Even though I have no programming job experience, I have solid knowledge programming 
+                complex web apps. Besides, I have 8 years 
+                of experience working in international trade with teamwork, 
+                communication and customer service skills.
               </p>
               <p>Companies that I worked for: </p>
               <div class'about-deatils experience'>
@@ -130,7 +131,46 @@
         </div> <!-- / about-->
         
         <div id="knowledge-module" class="module module-hidden">
-        
+          <div class='header-knowledge'>
+            <div class='square-js'><span>JS.</span></div>
+            <ul class='language-list'>
+              <li>JavaScript (vanilla)</li>
+              <li>React</li>
+              <li>Node.js</li>
+            </ul>
+          </div>
+          <div class='content-knowledge'>
+            <div class='conten-lang lang-javascript'>
+              <h3>JavaScript <span class='years-experience'>(3 years of experience)</span></h3>
+              <p>
+                I have been concerned to learn vanilla JavaScript before adding any additional 
+                abstraction layer (frameworks or libraries). I mean, learning the main concepts 
+                of the language to know what is under the hood. No matter what framework or library 
+                is used, knowing the language itself helps to understand 
+                better and faster the technologies that have been built base on Javascript.
+              </p>
+              <p>Related technologies: HTML, CSS, Sass</p>
+            </div>
+            
+            <div class='conten-lang'>
+              <h3>React <span class='years-experience'>(1 year of experience)</span></h3>
+              <p>
+                I love React because it allows me to create complex UI and be a better JavaScript 
+                developer at the same time. I learned how useful is React after trying to create a 
+                complex web SPA with vanilla JavaScript.
+              </p>
+              <p>Related technologies: React Router, Redux and React Native.</p>
+            </div>
+            
+            <div class='conten-lang'>
+              <h3>Node.js <span class='years-experience'>(2 years of experience)</span></h3>
+              <p>
+                Using Node.js for the backend has been the natural choice since I can take advantage 
+                of JavaScript experience.
+              </p>
+              <p>Related technologies: npm, Webpack</p>
+            </div>
+          </div> <!-- / content knowledge-->
         </div> <!-- / knowledge-->
         
         <div id="projects-module" class="module module-hidden">
@@ -139,7 +179,37 @@
           
       </div> <!-- main -->
     </div> <!-- wrapper -->
-    
+  
+  <noscript id="deferred-styles">
+    <link rel="stylesheet" type="text/css" href="./css/animation.css"/>
+  </noscript>
+  
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-hosting.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCm60DnMay9Gwi9NeB1xhsqjev4favT6Y8",
+      authDomain: "portfolio-gil.firebaseapp.com",
+      projectId: "portfolio-gil",
+      messagingSenderId: "357529782346"
+    };
+    firebase.initializeApp(config);
+  </script>
+  
   <script type="text/javascript" src="./bundle.js"></script>
+  
+  <script>
+    var loadDeferredStyles = function() {
+      var addStylesNode = document.getElementById("deferred-styles");
+      var replacement = document.createElement("div");
+      replacement.innerHTML = addStylesNode.textContent;
+      document.body.appendChild(replacement)
+      addStylesNode.parentElement.removeChild(addStylesNode);
+    };
+    var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+    else window.addEventListener('load', loadDeferredStyles);
+  </script>
   </body>
 </html>
