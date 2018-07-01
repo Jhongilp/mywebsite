@@ -62,35 +62,35 @@
                 communication and customer service skills.
               </p>
               <p>Companies that I worked for: </p>
-              <div class'about-deatils experience'>
+              <div class='about-deatils experience'>
                 <ul id='nav-experience' class='nav-experience'>
-                  <li>
-                    <div class='experience-company'>ProColombia</div>
-                    <div class='experience-company'>2015</div>
-                    <div class='experience-company'>Currently</div>
-                    <div class='experience-company'>Export advisor</div>
-                    <div class='experience-company'>See more</div>
+                  <li class='experience-company'>
+                    <div>ProColombia</div>
+                    <div>2015</div>
+                    <div>Currently</div>
+                    <div>Export advisor</div>
+                    <div>See more</div>
                   </li>
-                  <li>
-                    <div class='experience-company'>Nancy Gonzalez</div>
-                    <div class='experience-company'>2013</div>
-                    <div class='experience-company'>2015</div>
-                    <div class='experience-company'>International Trade Coordinator</div>
-                    <div class='experience-company'>See more</div>
+                  <li class='experience-company'>
+                    <div>Nancy Gonzalez</div>
+                    <div>2013</div>
+                    <div>2015</div>
+                    <div>International Trade Coordinator</div>
+                    <div>See more</div>
                   </li>
-                  <li>
-                    <div class='experience-company'>Michelin</div>
-                    <div class='experience-company'>2011</div>
-                    <div class='experience-company'>2013</div>
-                    <div class='experience-company'>International Trade Coordinator</div>
-                    <div class='experience-company'>See more</div>
+                  <li class='experience-company'>
+                    <div>Michelin</div>
+                    <div>2011</div>
+                    <div>2013</div>
+                    <div>International Trade Coordinator</div>
+                    <div>See more</div>
                   </li>
-                  <li>
-                    <div class='experience-company'>DHL</div>
-                    <div class='experience-company'>2009</div>
-                    <div class='experience-company'>2011</div>
-                    <div class='experience-company'>Import / Export Analyst </div>
-                    <div class='experience-company'>See more</div>
+                  <li class='experience-company'>
+                    <div>DHL</div>
+                    <div>2009</div>
+                    <div>2011</div>
+                    <div>Import / Export Analyst </div>
+                    <div>See more</div>
                   </li>
                 </ul>
               </div>  <!-- / about-details experience-->
@@ -174,27 +174,74 @@
         </div> <!-- / knowledge-->
         
         <div id="projects-module" class="module module-hidden">
-          
+          <ul class="projects">
+            <li class="projects__row">
+              <h3>JavaScript</h3>
+              <div class="project-thumbnail website-project">
+                <h4 class="project-title">This website</h4>
+                <!--<p class="project-desc">Make with vanilla JavaScript</p>-->
+                <div class="project__buttons">
+                  <a href="https://github.com/Jhongilp/mywebsite" target="_blank" class="btn">CODE</a>
+                </div>
+              </div>
+              <div class="project-thumbnail qbco-project">
+                <h4 class="project-title">Qbco web app</h4>
+                <!--<p class="project-desc">Strong use of Javascript to manipulate the DOM</p>-->
+                <div class="project__buttons">
+                  <a href="https://github.com/Jhongilp/qbco" target="_blank" class="btn">CODE</a>
+                  <a href="https://afternoon-anchorage-15620.herokuapp.com/" target="_blank" class="btn">VIEW</a>
+                </div>
+              </div>
+            </li>
+            <li class="projects__row">
+              <h3>React</h3>
+              <div class="project-thumbnail burger-project">
+                <h4 class="project-title">Burger maker</h4>
+                <!--<p class="project-desc">Let the user order ingredients to make a hamburg</p>-->
+                <div class="project__buttons">
+                  <a href="https://github.com/Jhongilp/hamburg" target="_blank" class="btn">CODE</a>
+                  <a href="https://burger-builder-react-jgp.firebaseapp.com/" target="_blank" class="btn">VIEW</a>
+                </div>
+              </div>
+              <div class="project-thumbnail menu-project">
+                <h4 class="project-title">Catch of the day</h4>
+                <!--<p class="project-desc">Deploy menu and order your meal!</p>-->
+                <div class="project__buttons">
+                  <a href="https://github.com/Jhongilp/menu-del-dia" target="_blank" class="btn">CODE</a>
+                  <a href="https://menu-del-dia-react.firebaseapp.com/" target="_blank" class="btn">VIEW</a>
+                </div>
+              </div>
+              <div class="project-thumbnail">
+                <h4 class="project-title">COMEX (SaaS)</h4>
+                <!--<p class="project-desc">Web app to control foreign trade operations</p>-->
+                <p class="project-desc">Still working on this ;)</p>
+                <div class="project__buttons">
+                  <a class="btn">CODE</a>
+                  <a class="btn">VIEW</a>
+                </div>
+              </div>
+            </li>
+            <li class="projects__row">
+              <h3>Node.js</h3>
+              <div class="project-thumbnail">
+                <h4 class="project-title">NODE</h4>
+                <p class="project-desc">Still working on this ;)</p>
+                <div class="project__buttons">
+                  <a class="btn">CODE</a>
+                  <a class="btn">VIEW</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+
         </div> <!-- / projects-->
-          
       </div> <!-- main -->
     </div> <!-- wrapper -->
   
   <noscript id="deferred-styles">
     <link rel="stylesheet" type="text/css" href="./css/animation.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/projects.css"/>
   </noscript>
-  
-  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-hosting.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCm60DnMay9Gwi9NeB1xhsqjev4favT6Y8",
-      authDomain: "portfolio-gil.firebaseapp.com",
-      projectId: "portfolio-gil",
-      messagingSenderId: "357529782346"
-    };
-    firebase.initializeApp(config);
-  </script>
   
   <script type="text/javascript" src="./bundle.js"></script>
   
@@ -203,7 +250,7 @@
       var addStylesNode = document.getElementById("deferred-styles");
       var replacement = document.createElement("div");
       replacement.innerHTML = addStylesNode.textContent;
-      document.body.appendChild(replacement)
+      document.body.appendChild(replacement);
       addStylesNode.parentElement.removeChild(addStylesNode);
     };
     var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||

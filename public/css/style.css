@@ -13,6 +13,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
+    background-color: #fff;
 }
 
 h1 {
@@ -97,7 +98,6 @@ header > h3 {
     background: #1c1d1e;
     opacity: 1;
     top: 0;
-    width: 100%;
     z-index: 200;
 }
 
@@ -311,7 +311,7 @@ nav {
     }
 }
 
-@media (min-width: 400px) {
+@media (min-width: 700px) {
     .wrapper {
         background-color: #fff;
     }
@@ -366,7 +366,7 @@ nav {
         text-transform: uppercase;
     }
     .main-nav {
-        width: 40%;
+        width: 80%;
         margin: 0 auto;
     }
     .active {
@@ -385,5 +385,30 @@ nav {
     #about-module {
         padding: 0 10%;
     }
-    
+}
+
+@media (min-width: 800px) {
+    .main-nav {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .main-nav {
+        width: 40%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1400px) {
+    .wrapper {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .upper-hl-fixed,
+    .main-nav-scrolled {
+        max-width: 1400px;
+    }
 }

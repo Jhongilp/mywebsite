@@ -1,6 +1,3 @@
-// import about from './about';
-// import knowledgeModule from './knowledge';
-// import projects from './projects';
 
 window.onload = () => {
   initialize();
@@ -21,7 +18,6 @@ const mainNav = () => {
   links.forEach( link => {
     link.addEventListener('click', () => {
       activateLink(links, link);
-      // showModule(link.id);
       rollView(360);
     });
   });
@@ -54,8 +50,6 @@ const mainNav = () => {
     }
   };
 }
-
-
 
 function activateLink(nav, linkClicked) {
   // Iterate through the links of the main nav (about, knowledge and projects)
@@ -98,7 +92,7 @@ function displayListAbout() {
         */ 
         
         // Get the id of the element clicked and split the last word. Ex: education in 'about-education'
-        // This word is used to get the some inner elements
+        // This word is used to get the inner elements
         const sectionId = node.id.split('-')[1];
         const arrow = document.getElementById(`arrow-header-${sectionId}`);
         const experienceDiv = document.getElementById(`about-${sectionId}`);
@@ -109,34 +103,31 @@ function displayListAbout() {
         // node and section are part of the same array of elements that have the class 'header-list'
         // node is the element of the inner loop that is iterated every time the section element is clicked
         if (node !== section) {
+          // make a setTimeout to smooth the trasition removing the 'display-showroll' css class
+          // This way, the DOM first displays the clicked section and then closes the others
           window.setTimeout(() => {
             experienceDiv.classList.remove('showroll');
             arrow.classList.remove('up');
             rolldownDiv.classList.remove('display-showroll');
           }, 300);
-          // experienceDiv.classList.remove('showroll');
-          // arrow.classList.remove('up');
-          // rolldownDiv.classList.remove('display-showroll');
         }
         else {
           experienceDiv.classList.toggle('showroll');
           arrow.classList.toggle('up');
           rolldownDiv.classList.toggle('display-showroll');
+          
+          // The css classes "showroll" and "display-showroll" use absolute positions
+          // In order to work, the container 'experienceDiv' must have a defined height
+          // 'experienceDiv' are three div elements corresponding to any of 
+          // these ids [about-experience, about-education, about-aboutMore]
+          // They have different heights after inner element with the class 'display-showroll'
+          // is displayed. So I use offsetHeight to know the height of the element clicked
           const classes = experienceDiv.className;
           if (classes.includes('showroll')) {
             experienceDiv.style.setProperty('height', (rolldownDiv.offsetHeight + 60 ) + 'px');
           }
           window.setTimeout(() => {
-            if (sectionId === 'experience') {
-              // rollView(550);
-              // rollView(550);
-            }
-            else if(sectionId === 'education') {
-              // rollView(605);
-              rollView(400);
-            }
-            else {
-              // rollView(655);
+            if(sectionId === 'aboutMore') {
               rollView(400);
             }
           }, 500);
@@ -145,15 +136,3 @@ function displayListAbout() {
     });
   });
 }
-
-
-
-// function showModule(moduleName) {
-//   const modules = {
-//     about: about(),
-//     knowledge: knowledge(),
-//     projects: projects()
-//   };
-//   const main = document.getElementById('main');
-//   main.appendChild(modules[moduleName]);
-// }

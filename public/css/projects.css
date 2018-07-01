@@ -1,0 +1,321 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0;
+}
+.projects__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+.projects__row h3 {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+}
+.project-thumbnail {
+    position: relative;
+    overflow: hidden;
+    /*width: 300px;*/
+    width: 98%;
+    height: 300px;
+    box-shadow: -10px 11px 10px -5px rgba(237,232,237,1);
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.2);
+    transition: background-color .4s ease-in;
+    margin-bottom: 10px;
+}
+.project-thumbnail:hover {
+    background-color: rgba(0,0,0,.7);
+    
+}
+.project-thumbnail::before {
+    position: absolute;
+        bottom: -40px;
+        left: 0;
+    content: "";
+    width: 350px;
+    height: 70px;
+    transform: rotate(-7deg);
+    transform-origin: left;
+    background-color: rgb(63, 127, 191);
+    z-index: 100
+}
+.project-thumbnail::after {
+    position: absolute;
+        top: -10%;
+        left: 0;
+    content: "";
+    height: 100%;
+    width: 100%;
+    transition: all .6s ease-in;
+    z-index: -100;
+}
+/*Set background image for each thumbnail project*/
+.website-project::after {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                      url('../img/website-thumbnail.png');
+    background-size: cover;
+}
+.qbco-project::after {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                      url('../img/qbco-app.png');
+    background-size: cover;
+}
+.burger-project::after {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                      url('../img/hamburg.png');
+    background-size: cover;
+}
+.menu-project::after {
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                      url('../img/menu-dia.png');
+    background-size: cover;
+}
+
+.project-thumbnail:hover::after {
+    top: 0;
+    text-align: center;
+}
+.project-title,
+.project-desc {
+    position: absolute;
+    content: "";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    color: #fff;
+}
+.project-title {
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 2px rgba(78, 111, 224, 0.8);
+    text-transform: uppercase;
+}
+.project-desc {
+    top: 100px;
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+    font-size: 1em;
+}
+
+.project__buttons {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    height: 40px;
+    width: 100%;
+    z-index: 200;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    height: 100%;
+    width: 120px;
+    background-color: rgba(64, 128, 191, .7);
+    text-shadow: 1px 1px 2px rgba(78, 111, 224, 0.8);
+    border-radius: 5px;
+    transition: all .4s ease-in;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: rgb(64, 128, 191);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+}
+
+.project-thumbnail:hover .project__buttons {
+    animation: showBtn .4s .6s cubic-bezier(0,.77,.19,.99) forwards;
+}
+
+.project-thumbnail:hover .project-title {
+    animation: backTitle .4s cubic-bezier(0,.77,.19,.99) forwards;
+}
+
+@keyframes showBtn {
+    0% {
+        opacity: 0;
+        transform: translateY(120px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(180px);
+    }
+}
+
+@keyframes backTitle {
+    0% {
+        /*opacity: 0;*/
+        bottom: 0;
+        /*transform: translateY(110px);*/
+    }
+    100% {
+        opacity: 1;
+        /*transform: translateY(60px);*/
+        bottom: 220px;
+    }
+}
+
+
+
+
+@media (min-width: 800px) {
+    .projects {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 0;
+        
+    }
+    .projects__row {
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        grid-template-rows: 40px 320px;
+        grid-gap: 0 20px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    .projects__row h3 {
+        grid-row: 1 / 2;
+        grid-column: 1 / 4;
+    }
+    .project-thumbnail {
+        position: relative;
+        overflow: hidden;
+        width: 300px;
+        height: 300px;
+        box-shadow: -10px 11px 10px -5px rgba(237,232,237,1);
+        border-radius: 10px;
+        background-color: rgba(0,0,0,.2);
+        transition: background-color .4s ease-in;
+    }
+    .project-thumbnail:hover {
+        background-color: rgba(0,0,0,.7);
+        
+    }
+    .project-thumbnail::before {
+        position: absolute;
+            bottom: -40px;
+            left: 0;
+        content: "";
+        width: 350px;
+        height: 70px;
+        transform: rotate(-7deg);
+        transform-origin: left;
+        background-color: rgb(63, 127, 191);
+        z-index: 100
+    }
+    .project-thumbnail::after {
+        position: absolute;
+            top: -10%;
+            left: 0;
+        content: "";
+        height: 100%;
+        width: 100%;
+        transition: all .6s ease-in;
+        z-index: -100;
+    }
+    /*Set background image for each thumbnail project*/
+    .website-project::after {
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                          url('../img/website-thumbnail.png');
+    }
+    .qbco-project::after {
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                          url('../img/qbco-app.png');
+        background-size: cover;
+    }
+    .burger-project::after {
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                          url('../img/hamburg.png');
+        background-size: cover;
+    }
+    .menu-project::after {
+        background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.7)),
+                          url('../img/menu-dia.png');
+        background-size: cover;
+    }
+    
+    .project-thumbnail:hover::after {
+        top: 0;
+        text-align: center;
+    }
+    .project-title,
+    .project-desc {
+        position: absolute;
+        content: "";
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 200;
+        color: #fff;
+    }
+    .project-title {
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 1.5em;
+        text-shadow: 1px 1px 2px rgba(78, 111, 224, 0.8);
+        text-transform: uppercase;
+    }
+    .project-desc {
+        top: 100px;
+        width: 80%;
+        margin: 0 auto;
+        height: 100px;
+        font-size: 1em;
+    }
+    
+    .project__buttons {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        opacity: 0;
+        height: 40px;
+        width: 100%;
+        z-index: 200;
+    }
+    
+    .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        height: 100%;
+        width: 120px;
+        background-color: rgba(64, 128, 191, .7);
+        text-shadow: 1px 1px 2px rgba(78, 111, 224, 0.8);
+        border-radius: 5px;
+        transition: all .4s ease-in;
+        font-size: 1.2em;
+        color: #fff;
+    }
+    
+    .btn:hover {
+        background-color: rgb(64, 128, 191);
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+    }
+    
+    .project-thumbnail:hover .project__buttons {
+        animation: showBtn .4s .6s cubic-bezier(0,.77,.19,.99) forwards;
+    }
+    
+    .project-thumbnail:hover .project-title {
+        animation: backTitle .4s cubic-bezier(0,.77,.19,.99) forwards;
+    }
+}

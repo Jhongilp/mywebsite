@@ -31,21 +31,6 @@ i {
 
 /* End arrow animation*/
 
-.header-list {
-    display: inline-block;
-    width: 100%;
-    justify-content: space-around;
-    height: 50px;
-    background-color: #fff;
-    z-index: 1;
-}
-
-.header-list h2 {
-    display: inline-block;
-    width: 90%;
-    padding-top: 10px;
-}
-
 .about-list {
     position: relative;
     border-bottom: 1px solid #eee;
@@ -56,10 +41,31 @@ i {
     z-index: 1;
 }
 
+.header-list {
+    display: inline-block;
+    width: 100%;
+    justify-content: space-around;
+    height: 50px;
+    background-color: #fff;
+    z-index: 1;
+    transition: background-color .2s ease-in;
+}
+
+.header-list:hover {
+    background-color: #eee;
+    cursor: pointer;
+}
+
+.header-list h2 {
+    display: inline-block;
+    width: 90%;
+    padding-top: 10px;
+}
+
 .showroll {
     display: flex;
     flex-direction: column;
-    height: var(--heightShowroll);
+    /*height: var(--heightShowroll);*/
     transition: height .4s cubic-bezier(0,.75,.42,.99);
 }
 
@@ -74,12 +80,8 @@ i {
     position: absolute;
         top: 50px;
     transition: top .2s .1s cubic-bezier(0,.75,.42,.99);
-}
-
-.display-showroll {
     padding-bottom: 25px;
 }
-
 
 /*NAV EXPERIENCE*/
 
@@ -90,7 +92,7 @@ i {
     align-items: flex-start;
 }
 
-.nav-experience li {
+.experience-company {
     width: 100%;
     border: 1px solid #eee;
     margin-bottom: 5px;
@@ -99,7 +101,7 @@ i {
     grid-template-rows: 45px 45px;
 }
 
-.experience-company {
+.experience-company div {
     position: relative;
     display: flex;
     justify-content: flex-start;
@@ -107,16 +109,16 @@ i {
     padding: 15px 0 0 3px;
 }
 
-.experience-company:nth-child(4) {
+.experience-company div:nth-child(4) {
     grid-column: 1 / 3;
 }
 
-.experience-company:nth-child(5) {
+.experience-company div:nth-child(5) {
     font-weight: bold;
     color: rgb(63, 127, 191);
 }
 
-.experience-company::after {
+.experience-company div::after {
     height: 15px;
     position: absolute;
     top: 5px;
@@ -124,16 +126,16 @@ i {
     color: #ccc;
 }
 
-.experience-company:nth-child(1)::after {
+.experience-company div:nth-child(1)::after {
     content: 'Company';
 }
-.experience-company:nth-child(2)::after {
+.experience-company div:nth-child(2)::after {
     content: 'To';
 }
-.experience-company:nth-child(3)::after {
+.experience-company div:nth-child(3)::after {
     content: 'From';
 }
-.experience-company:nth-child(4)::after {
+.experience-company div:nth-child(4)::after {
     content: 'Title';
 }
 
@@ -258,15 +260,28 @@ i {
 }
 
 
-@media (min-width: 400px) {
+@media (min-width: 800px) {
     .header-knowledge {
         display: none;
+    }
+    .header-list {
+        padding: 0 10px;
     }
     .content-knowledge {
         grid-template-columns: 1fr 1fr 1fr;
         grid-gap: 40px;
     }
+    .experience {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .list-projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }
+
 
 
 
